@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Japan Weather</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/styles/style.css" />
+  <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="japan-bg min-h-screen text-white overflow-x-hidden flex items-center justify-center p-5">
+<!-- Navbar -->
+
+<nav
+  class="w-full fixed top-0 left-0 z-50 px-6 md:px-12 py-5 flex justify-between items-center backdrop-blur-md bg-black/20 border-b border-white/10"
+>
+<!-- Logo -->
+
+  <div class="flex items-center gap-3">
+    <img src="/images/clear.png" class="w-10 h-10 sun-image" />
+
+    <h1
+      class="text-2xl md:text-3xl font-bold tracking-widest text-pink-200"
+    >
+      天気アプリ
+    </h1>
+  </div>
+
+<!-- Navigation -->
+
+  <ul class="hidden md:flex gap-10 text-lg text-white/90 font-medium">
+    <li class="nav-link">ホーム</li>
+    <li class="nav-link">天気</li>
+    <li class="nav-link">東京</li>
+    <li class="nav-link">日本</li>
+  </ul>
+</nav>
+
+   <div
+  class="glass w-full max-w-6xl rounded-[35px] shadow-2xl p-6 md:p-10 mt-24">
+
+<!-- Search -->
+      <div class="flex justify-center">
+        <form action="/search" method="POST" class="relative w-full md:w-[70%]">
+
+          <input
+            type="text"
+            placeholder="都市を検索してください..."
+            name="location"
+            class="search-input"
+          />
+
+          <button type="submit" class="search-btn">
+            <img src="/images/search.png" alt="" class="w-5 h-5" />
+          </button>
+
+        </form>
+      </div>
+
+<!-- Weather -->
+      <div class="flex justify-center mt-8">
+        <div class="sun-wrapper">
+          <img src="/images/clear.png" alt="" class="sun-image w-28 h-28" />
+        </div>
+      </div>
+
+<!-- Temperature -->
+      <div class="text-center mt-6">
+        <h1 class="temp-text">
+          <%= Math.floor(temp) %>°
+        </h1>
+
+        <p class="text-pink-200 text-xl mt-2">
+           今日はいい天気ですね ☀️
+        </p>
+      </div>
+
+<!-- Max Min -->
+      <div class="flex justify-center gap-8 md:gap-16 mt-8 text-center flex-wrap">
+
+        <div class="glass info-card">
+          <p class="text-pink-200">最高気温</p>
+
+          <h2 class="text-3xl font-semibold">
+            <%= Math.floor(maxTemp) %>°C
+          </h2>
+        </div>
+
+        <div class="glass info-card">
+          <p class="text-blue-200">最低気温</p>
+
+          <h2 class="text-3xl font-semibold">
+            <%= Math.floor(minTemp) %>°C
+          </h2>
+        </div>
+
+      </div>
+
+<!-- Divider -->
+      <div class="divider"></div>
+
+<!-- Weather Details -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center">
+
+        <div class="glass weather-card">
+          <h2 class="card-title">日の出</h2>
+
+          <img src="/images/sunrise.png" alt="" class="weather-icon" />
+
+          <h3 class="card-value text-yellow-200">
+            <%= sunrise %>
+          </h3>
+        </div>
+
+        <div class="glass weather-card">
+          <h2 class="card-title">日の入り</h2>
+
+          <img src="/images/sunset.png" alt="" class="weather-icon" />
+
+          <h3 class="card-value text-orange-200">
+            <%= sunset %>
+          </h3>
+        </div>
+
+        <div class="glass weather-card">
+          <h2 class="card-title">雨</h2>
+
+          <img src="/images/rain.png" alt="" class="weather-icon" />
+
+          <h3 class="card-value text-cyan-200">
+            <%= rain %>
+          </h3>
+        </div>
+
+        <div class="glass weather-card">
+          <h2 class="card-title">UV 指数</h2>
+
+          <img src="/images/Uvindex.png" alt="" class="weather-icon" />
+
+          <h3 class="card-value text-pink-200">
+            <%= uvIndex %>
+          </h3>
+        </div>
+
+        <div class="glass weather-card">
+          <h2 class="card-title">昼</h2>
+
+          <img src="/images/clouds.png" alt="" class="weather-icon" />
+
+          <h3 class="card-value text-slate-200">
+            <%= isDay %>
+          </h3>
+        </div>
+
+      </div>
+
+    </div>
+<!-- Custom Cursor -->
+
+<div class="cursor"></div>
+
+<script>
+  const cursor = document.querySelector(".cursor");
+
+  document.addEventListener("mousemove", (e) => {
+cursor.animate(
+  {
+    left: `${e.clientX}px`,
+    top: `${e.clientY}px`,
+  },
+  {
+    duration: 300,
+    fill: "forwards",
+  }
+);
+  });
+</script>
+
+  </body>
+</html>

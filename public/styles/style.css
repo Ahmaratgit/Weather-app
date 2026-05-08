@@ -1,0 +1,489 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Background */
+
+.japan-bg {
+  background-image: linear-gradient(
+      rgba(15, 23, 42, 0.55),
+      rgba(30, 41, 59, 0.7)
+    ),
+    url("/images/sunnyday2.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Glass Effect */
+
+.glass {
+  background: rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Search */
+
+.search-input {
+  width: 100%;
+  padding: 16px 24px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  color: white;
+
+  font-size: 18px;
+
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-input:focus {
+  border-color: #f9a8d4;
+
+  box-shadow: 0 0 10px rgba(249, 168, 212, 0.6);
+}
+
+.search-btn {
+  position: absolute;
+
+  right: 8px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  background: #f472b6;
+
+  padding: 12px;
+
+  border-radius: 999px;
+
+  border: none;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.search-btn:hover {
+  background: #ec4899;
+
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Sun */
+
+.sun-wrapper {
+  width: 170px;
+  height: 170px;
+
+  border-radius: 999px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(to bottom right, #fde047, #fb923c);
+
+  box-shadow: 0 0 40px rgba(255, 200, 0, 0.5);
+}
+
+.sun-image {
+  animation: spin 14s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Temperature */
+
+.temp-text {
+  font-size: 90px;
+
+  font-weight: bold;
+
+  letter-spacing: 3px;
+}
+
+/* Cards */
+
+.info-card {
+  padding: 22px 40px;
+
+  border-radius: 24px;
+
+  transition: 0.3s;
+}
+
+.info-card:hover {
+  transform: translateY(-6px);
+}
+
+.weather-card {
+  padding: 24px;
+
+  border-radius: 24px;
+
+  transition: 0.3s;
+}
+
+.weather-card:hover {
+  transform: translateY(-8px);
+}
+
+.card-title {
+  font-size: 22px;
+
+  font-weight: 600;
+
+  margin-bottom: 16px;
+}
+
+.weather-icon {
+  width: 65px;
+  height: 65px;
+
+  margin: auto;
+}
+
+.card-value {
+  margin-top: 16px;
+
+  font-size: 18px;
+}
+
+/* Divider */
+
+.divider {
+  width: 100%;
+
+  height: 1px;
+
+  margin: 40px 0;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .temp-text {
+    font-size: 60px;
+  }
+
+  .sun-wrapper {
+    width: 130px;
+    height: 130px;
+  }
+}
+/* Navbar */
+
+.nav-link {
+  position: relative;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: #f9a8d4;
+}
+
+.nav-link::after {
+  content: "";
+
+  position: absolute;
+
+  width: 0%;
+
+  height: 2px;
+
+  left: 0;
+  bottom: -5px;
+
+  background: #f9a8d4;
+
+  transition: 0.4s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Arrow Animation */
+
+.arrow {
+  margin-top: 12px;
+
+  font-size: 24px;
+
+  animation: moveArrow 1.2s infinite;
+
+  color: #fbcfe8;
+}
+
+@keyframes moveArrow {
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+/* Japanese Aesthetic */
+
+.glass:hover {
+  box-shadow: 0 0 25px rgba(255, 182, 193, 0.25);
+}
+
+/* Smooth */
+
+.weather-card,
+.info-card,
+.search-btn,
+.nav-link {
+  transition: all 0.3s ease;
+}
+/* Hide Default Cursor */
+
+body {
+  cursor: none;
+}
+
+/* Main Cursor */
+
+.cursor {
+  position: fixed;
+
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 182, 193, 0.9);
+
+  backdrop-filter: blur(5px);
+
+  pointer-events: none;
+
+  z-index: 9999;
+
+  transform: translate(-50%, -50%);
+
+  box-shadow:
+    0 0 10px rgba(255, 182, 193, 0.8),
+    0 0 25px rgba(244, 114, 182, 0.7);
+
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    background 0.2s ease;
+
+  animation: pulse 2s infinite;
+}
+
+/* Cursor Ring */
+
+.cursor::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -10px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  animation: ring 2s linear infinite;
+}
+
+/* Pulse Animation */
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Ring Animation */
+
+@keyframes ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Not using  */
+/* * {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: url("/images/sunnyday2.jpg") no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: blur(8px);
+  color: white;
+}
+h1 {
+  font-size: 60px;
+  text-align: center;
+  padding: 10px;
+}
+
+.weather,
+img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sun-image {
+  animation: spin 10s linear infinite;
+  transform-origin: center;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.temp-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+.line {
+  border: none;
+  height: 2px;
+  background-color: black;
+  margin: 20px;
+  margin-left: 360px;
+  margin-right: 360px;
+}
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  gap: 90px;
+}
+.container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  position: relative;
+}
+.search input {
+  width: 65%;
+  padding: 15px;
+  padding-right: 50px;
+  border: 2px solid black;
+  outline: none;
+  background: transparent;
+  font-size: 20px;
+  border-radius: 30px;
+  color: #fff;
+}
+::placeholder {
+  color: #fff;
+  opacity: 0.5;
+} */
+
+/* .search {
+  width: 98%;
+  padding: 15px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search form {
+  display: flex;
+  border: 2px solid #ccc;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.search input[type="text"] {
+  width: 100%;
+  
+  border: 2px solid #fff;
+  font-size: 12px;
+  outline: none;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 20px;
+  color: #fff;
+} */
